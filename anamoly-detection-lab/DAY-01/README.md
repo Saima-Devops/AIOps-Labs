@@ -38,15 +38,38 @@ Before you begin, ensure you have:
 git clone https://github.com/yourusername/aiops-lab.git
 cd aiops-lab
 
-# Install Docker dependencies (if not already installed)
+# Install Docker & Docker Compose (if not already installed)
 sudo apt-get update
-sudo apt-get install -y docker.io docker-compose
+sudo apt-get install -y docker.io docker-compose-v2
+
+# Add user to the Docker group:
+sudo usermod -aG docker "$USER"
+newgrp docker
+
+# Verify access:
+docker compose version
+docker ps
+
+# Install virtual environment support
+sudo apt install -y python3-venv
+
+# Create the virtual environment
+python3 -m venv .venv
+
+# Activate it
+source .venv/bin/activate
 
 # Install Python dependencies
-pip install -r scripts/requirements.txt
+python -m pip install --upgrade pip
+python -m pip install -r scripts/requirements.txt
 
 # Install additional dependencies
 pip install pandas requests scikit-learn
+
+# verify:
+python -m pip check
+python -c "import pandas; print(pandas.__version__)"
+python -c "import pandas, sklearn, requests; print('Imports successful')"
 ```
 
 ### Step 2: Launch the Monitoring Stack
@@ -66,8 +89,11 @@ python3 detect_anomalies.py # Start real-time monitoring
 
 ### Step 4: Test the System
 
+Open another tab within the same virtual environment
+
 ```bash
 # Install stress-ng (Ubuntu/Debian)
+source .venv/bin/activate
 sudo apt-get install -y stress-ng
 
 # Simulate CPU load
