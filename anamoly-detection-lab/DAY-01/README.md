@@ -6,6 +6,7 @@ This project is designed to help you set up a **production-ready monitoring syst
 
 ---
 ![alt text](screenshots/observability-diagram.png)
+
 ---
 
 ## ✨ Features
@@ -118,6 +119,15 @@ stress-ng --cpu 2 --timeout 120s
 
 ---
 
+![alt text](screenshots/Screenshot-1.png)
+![alt text](screenshots/Screenshot-2.png)
+![alt text](screenshots/Screenshot-3.png)
+![alt text](screenshots/Screenshot-4.png)
+![alt text](screenshots/Screenshot-5.png)
+![alt text](screenshots/Screenshot-6.png)
+
+---
+
 ## 🛠️ Troubleshooting
 
 - 🔄 **Check Docker**: `docker ps` (ensure all services are running)
@@ -128,6 +138,6 @@ stress-ng --cpu 2 --timeout 120s
 
 ## 🎉 Credits
 
-Developed by **[Rajinikanth Vadla](https://github.com/rajinikanthvadla-ai)** © 2025. All rights reserved.
+Developed by **Saima Usman** © 2025. All rights reserved.
 
 Enjoy your AIOps journey! 🚀
